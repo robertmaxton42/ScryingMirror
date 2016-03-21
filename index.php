@@ -9,4 +9,5 @@
     $baseTag->setAttribute('href', urldecode($_POST['URL']));
     $dom->getElementsByTagName('head')->item(0)->appendChild($baseTag);
     $dom->saveHTMLFile('latestpage.html');
+    echo getenv('port');
 ?>
