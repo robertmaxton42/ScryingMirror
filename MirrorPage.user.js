@@ -12,7 +12,9 @@ GM_xmlhttpRequest({
     method: 'POST',
     url: 'http://dynamicmirror.heroku.com/index.php',
     data: "PageContents=" + encodeURIComponent(ihtml) + "&URL=" + encodeURIComponent(document.URL),
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    onerror: function (response) { alert("Error in POST"); },
+    onload: function (response) { alert("Successful POST");}
 });
 
 //window.setTimeout(function(){window.location.href = http://localhost:26553/latest;}
