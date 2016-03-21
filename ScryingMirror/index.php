@@ -1,7 +1,10 @@
 
 <?php
-    $PageContents = $_POST['PageContents'];
-	$PageContents = urldecode($PageContents);
-	file_put_contents('latestpage.html', $PageContents);
+    $dom = new DOMDocument();
+    $dom->formatOutput=true;
+    
+    $PageContents = urldecode($_POST['PageContents']);
+    $dom->loadHTML($PageContents);
+    $dom->saveHTMLFile('latestpage.html');
 	echo urldecode($_POST['url']) . " has been saved."
 ?>
