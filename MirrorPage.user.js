@@ -10,7 +10,7 @@
 var ihtml = document.getElementsByTagName("html")[0].innerHTML;
 GM_xmlhttpRequest({
     method: 'POST',
-    url: 'http://dynamicmirror.heroku.com/index.php',
+    url: 'http://dynamicmirror.herokuapp.com/index.php',
     data: "PageContents=" + encodeURIComponent(ihtml) + "&URL=" + encodeURIComponent(document.URL),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     onerror: function (response) { alert("Error in POST"); },
