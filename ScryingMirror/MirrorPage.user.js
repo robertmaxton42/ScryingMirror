@@ -14,3 +14,5 @@ GM_xmlhttpRequest({
     data: "PageContents=" + encodeURIComponent(ihtml) + "&URL=" + encodeURIComponent(document.URL),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 });
+
+window.setTimeout(function(){window.location.href = http://localhost:26553/latest}
