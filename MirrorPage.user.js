@@ -10,9 +10,9 @@
 var ihtml = document.getElementsByTagName("html")[0].innerHTML;
 GM_xmlhttpRequest({
     method: 'POST',
-    url: 'http://localhost:26553/index.php',
+    url: 'http://dynamicmirror.heroku.com/index.php',
     data: "PageContents=" + encodeURIComponent(ihtml) + "&URL=" + encodeURIComponent(document.URL),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 });
 
-window.setTimeout(function(){window.location.href = http://localhost:26553/latest}
+//window.setTimeout(function(){window.location.href = http://localhost:26553/latest;}
