@@ -19,4 +19,7 @@
   <ItemGroup>
     <Compile Include="index.php" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="MirrorPage.user.js" />
+  </ItemGroup>
 </Project>
