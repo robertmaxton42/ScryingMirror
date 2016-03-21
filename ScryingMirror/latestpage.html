@@ -1,0 +1,879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link type="text/css" rel="stylesheet" href="/themes/d3/all.css.php?v=77">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="/js/?v=77"></script><link rel="icon" href="/img/d6-32px.png" type="image/png">
+<meta name="viewport" content="width=device-width">
+<title>Moon Mage 3 &middot; Rolz</title>
+<base href="https://rolz.org/tavern/thread?id=5808">
+</head>
+<body>
+<h1 id="head">
+<div class="h2 left-menu">
+<a href="/" title="Rolz" id="title_die"><img style="vertical-align: top;" src="/img/d6-32px.png" height="22"></a>
+<span id="pg-title"><a href="/">ROLZ</a></span>
+<span id="ruleset_title"></span>
+</div>
+<div id="topmenu" class="h2 right-menu" role="menu">
+<a class="site-menu pgu-join" href="/join" title="join dice room" role="menuitem">Dice Room</a> &nbsp;
+<a class="site-menu pgu-tavern" href="/tavern" title="tavern forum" role="menuitem">Tavern</a> &nbsp;
+<a class="site-menu pgu-more" id="more-menu" onclick="toggleMenu(event);"><span style="font-size: 50%;vertical-align: top;">&#9654;</span> More</a>
+<div id="about-menu">
+<a href="/help/whatsnew">What's New</a>
+<a href="/help/about">About Rolz</a>
+<a href="/comments">Feedback</a>
+<hr>
+<a href="/join">Dice Room</a>
+<a href="/tavern">Tavern</a>
+<a href="/tools/mini">Mini UI</a>
+<a href="/help/general">Help</a>
+</div>
+</div>
+</h1>
+<div id="container">
+<div id="content">
+<script id="tmpl-tavern-post-widget" type="text/x-handlebars-template">
+   
+  <div id="post-widget-i{{p_key}}">
+    
+    <div>{{#unless p_key}}Post a reply as LyraTachimori:{{/unless}}</script>
+</div>
+    
+    <textarea>{{src}}</textarea><div style="float:right">
+      <a target="_blank" href="/wiki/page?w=help&amp;n=TextFormat"><i class="fa fa-info-circle"></i> text formatting help</a>
+    </div>
+    <div class="error"></div>
+    <input type="hidden" name="post_id" value=""><input type="button" value="{{#if p_key}}Change{{else}}Post{{/if}} Comment" onclick="Tavern.post(
+      $('#post-widget-i{{p_key}} &gt; textarea').val(), 
+      '{{p_key}}');">
+</div>
+
+
+<div class="tavern-banner"></div>
+<script id="tmpl-tavern-banner" type="text/x-handlebars-template">
+  <div class="banner" id="banner_{{id}}">
+    {{text}}
+  
+</script><script id="tmpl-tavern-notice" type="text/x-handlebars-template">
+  <div class="banner bannerOK" id="banner_{{id}}">
+    {{text}}
+  
+</script><script>
+  
+$(document).ready(function() {
+if(parent.document && parent.document.uiArea == 'diceroom') {
+  // todo: link custom stylesheet for this stuff
+  $('#head').remove();
+  $('#tavern-head').css('margin-top', '0px');
+  $('.header-image > .login').css('top', '-4px');
+  $('#container').css('margin-top', '0px');
+  $('body').append('<style>.article, .tavern-content, .panel-x2, .panel-container > div { box-shadow: none; border: none; margin-top: 0px; background: none; } body { background: none; margin: 0; margin-right: 12px; }  #content { padding-right: 0; padding-left: 0; margin: 0; } .tavern-content { margin-right: -12px; } .header-image  > .close { padding-left: 14px;} .hidden-in-room { display: none } ');
+  //$('.tavern-catbar').css('margin-right', '-24px');
+}
+});
+  
+var banner = $('#tmpl-tavern-banner').html();
+if(banner) Tavern.templates.banner = Handlebars.compile(banner);
+
+var notice = $('#tmpl-tavern-notice').html();
+if(notice) Tavern.templates.notice = Handlebars.compile(notice);
+
+var postWidget = $('#tmpl-tavern-post-widget').html();
+if(postWidget) Tavern.templates.postWidget = Handlebars.compile(postWidget);
+  
+</script><div class="header-image">
+<div class="login">
+<a href="/~LyraTachimori" title="profile">
+LyraTachimori &nbsp;
+4 <i class="fa fa-heart-o"></i></a>
+<a target="_parent" href="/tavern/logout" title="sign out"><i class="fa fa-sign-out"></i></a> </div>
+<div class="img" style="background:url('/themes/common/rolz-headimg4.jpg');">
+<div class="header-image-title">Moon Mage 3 <div style="font-size: 70%">
+in <a href="/tavern">Tavern</a> /
+<a href="/tavern/browse?tag=:dr-746627">Moon Mage</a>
+</div>
+</div> </div>
+<div class="close"> <div style="text-align:center">
+<div class="switch-link">
+<a style="" href="/tavern/" class="">
+Overview</a><a style="" href="/tavern/my" class="active">
+Rooms</a><a style="" href="/tavern/notes" class="">
+Notes</a> </div>
+</div>
+</div>
+</div>
+<div class="tavern-content">
+<div class="tavern-thread">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5808" onclick="Tavern.upvote(5808);"><i class="gray fa fa-heart-o"></i></a><br>1 </div>
+<div class="tavern-thread-content" id="post-5808">
+<h4><a href="/tavern/thread?id=5808">Moon Mage 3</a></h4>
+<div class="small gray">
+<a href="/~automaton">automaton</a> &middot;
+<i class="fa fa-plus-square-o"></i> new
+by automaton &middot;
+<a href="/tavern/thread?id=5808&amp;page=last#btm"><i class="fa fa-comment"></i> 51</a> </div>
+<div class="comment-text" style="">
+<p>Lin leads you onto the plane, where the briefing is to take place. It's fitted out like a sleeping car in a train, and looks rather nice. "<i class="inline-quote">Anderson knows a guy, managed to get us a Syndic's jet for transport.</i>"</p>
+<p>Anderson himself is sitting in the front of the room, and with your arrival, he begins to speak. "<i class="inline-quote">We've learned that the EDE was working with Brass City Records, a code PENTEX. I believe that they are intending to start a series of race riots through EDEs that infest people through rap music. I don't know if this is intended as a distraction, or if it's just an attempt at revenge. Our current plan is to determine if BCR is linked to any other infested companies, then to destroy them. I've got a MiB team keeping watch on their headquarters, and we'll take over when we land in LA. Questions?</i>"</p> </div>
+</div>
+</div>
+<div id="tavern-post-list">
+<div class="tavern-list-post " id="post-5812">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5812" onclick="Tavern.upvote(5812);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 04th 23:59 &middot; <a onclick="Tavern.edit(5812);">edit</a> </div>
+<div class="comment-text">
+<p>It's not, necessarily, that Lyra doesn't feel anxious. Rather, it's that her emotions don't impinge much on her actions; before she Enlightened she had trouble even noticing, sometimes, except when her body responded involuntarily, with sweaty palms and pounding heartbeat.</p>
+<p>So newbie or not, she does ask: "<i class="inline-quote">Wouldn't it be safer to check if it's a distraction before moving in? I could be missing something, but we seem to have the luxury of time in this case, at least on the scale of hours.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5813">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5813" onclick="Tavern.upvote(5813);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 05th 00:23 </div>
+<div class="comment-text">
+<p>"<i class="inline-quote">... I forgot to mention that. Ah well. We're looking at a couple of days for the investigation, maybe up to two weeks. Of course, that's at the high end. And we hopefully aren't going to end up going after them all ourselves, we'll be calling in some heavy support.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5814">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5814" onclick="Tavern.upvote(5814);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 05th 00:27 &middot; <a onclick="Tavern.edit(5814);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra nods, subsiding.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5815">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5815" onclick="Tavern.upvote(5815);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 05th 01:00 </div>
+<div class="comment-text">
+<p>Anderson fields a couple more questions about the situation on the ground in LA, but it doesn't mean much to you.</p>
+<p>"<i class="inline-quote">If that's all, we should get to sleep. We've had a long day, and these are Syndic beds. The privacy curtains muffle sound quite well, but I recommend that you use headphones anyways. The shower is in the bathroom, it's got some tech that'll let you get clean in half a minute. I call first.</i>" He then walks into the bathroom at a brisk pace, apparently not wanting to risk anyone disregarding the dibs.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5816">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5816" onclick="Tavern.upvote(5816);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 05th 01:15 &middot; <a onclick="Tavern.edit(5816);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra is quite looking forward to her bed; her headache is mostly under control but has still been gently throbbing all day. ... But, well, she does have a job to do.</p>
+<p>Thankfully, modern IDEs are much better at stress-testing code than Masses code would indicate; finding the bug that crashed her ADEI and fixing it, along with several similar potentially problematic flaws only takes about ten minutes of realtime.</p>
+<p>After that, it's shower - <b>very</b> fancy, the smartfluid picks up all the dust of a long day before running off all in one go, leaving behind clean and well-conditioned skin - and sleep. No worries about dehydration on a Technocracy plane. She'd normally meditate around now, but she's only going to be getting six hours of sleep tonight as it is, it seems.</p>
+<p>So instead, she collapses smoothly onto the decadently fluffy bed, closes her curtains, changes into her pajamas...</p>
+<p>Hm, let's test that white noise generator she had written up.</p>
+<p>And with that silencing the room, a simple mind trick has her out like a light.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5817">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5817" onclick="Tavern.upvote(5817);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 05th 01:30 </div>
+<div class="comment-text">
+<p>You wake up feeling refreshed at around midnight when someone pokes you with a stick. Looking up, you see that it's Anderson. "<i class="inline-quote">Up and at 'em, time to start staking out some rappers.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5818">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5818" onclick="Tavern.upvote(5818);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 05th 01:39 &middot; <a onclick="Tavern.edit(5818);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra blinks twice, lazily, her eyes almost (almost?) glowing blue this close to sleep... and then she shoos him off while she gets dressed.</p>
+<p>Suit, tie - the memory fabric doesn't get wrinkled even after she stuffed it into her backpack - briefcase, check.</p>
+<p>Where to?</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5819">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5819" onclick="Tavern.upvote(5819);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 05th 01:53 </div>
+<div class="comment-text">
+<p>After what is probably a few minutes of poking recalcitrant sleepers, Anderson begins speaking loudly from the front of the plane. "<i class="inline-quote">Alright, here's the plan. Me and John are on stake-out duty. See what you can pick up from outside their headquarters. Megan's going to search the houses of the employees, starting at the top of the corporate ladder. Lin's on hacking duty. Luna, you tag along with someone. Let's get moving.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5820">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5820" onclick="Tavern.upvote(5820);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 05th 02:11 &middot; <a onclick="Tavern.edit(5820);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra thinks for a moment. While she doesn't dislike working with Lin, while she's just getting started she should try a few different things, learn from a few people.</p>
+<p>... Stake-out does nnnot sound very interesting to her. She'll want to learn to do it sometime - but then again, maybe not. She <b>does</b> have computers to do that for her, after all.</p>
+<p>At any rate, spending time with Megan is a hands-on active job, so she'll do that. Silently, she nods at Megan, and walks over to her.</p>
+<p>Meanwhile, just to be helpful, she configures her EDE detector (hopefully fixed!) to watch over the company building. It's two-dimensional and her resolution is still awful, but maybe it'll be useful anyway. She texts Anderson a link to her video feed and sets it up to send her a quiet alert if an EDE enters or leaves the building.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5821">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5821" onclick="Tavern.upvote(5821);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 05th 02:27 &middot; changed: Mar 05th 02:34 </div>
+<div class="comment-text">
+<p>Megan leads you to a car (black, of course) and the man driving it pulls out, begining to head towards one of LA's nicer neighborhoods.</p>
+<p>"<i class="inline-quote">The majority of our targets will probably be sleeping, but we're going to look around until we find one that isn't, and hit the rest during the work day. Make sure you stay quiet when we enter until the house is cleared, I don't want to have a maid put up a fuss. If someone comes home while we're there, we escape out the back. Your primary responsibility is to deal with the security systems and see how we work. Questions?</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5822">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5822" onclick="Tavern.upvote(5822);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 05th 02:40 &middot; <a onclick="Tavern.edit(5822);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra nods along and shakes her head.</p>
+<p>As far as staying quiet goes... well, her noise <b>scrambling</b> algorithm definitely seems to work fine. She sets it to "<i class="inline-quote">wind and birdsong</i>" and turns it on.</p>
+<p>She throws Megan a questioning glance - she <b>really doubts</b> the NWO Watcher needs help staying quiet, but something makes her feel like it'd be rude not to offer.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5823">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5823" onclick="Tavern.upvote(5823);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 05th 02:48 </div>
+<div class="comment-text">
+<p>Megan shakes her head.</p>
+<p>The first two houses are busts, but the third has no-one home.</p>
+<p>"<i class="inline-quote">Cut the security system. Loop the cameras if you can, delete their footage if you can't. I'll scan for EDEs.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5824">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5824" onclick="Tavern.upvote(5824);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 05th 02:54 &middot; <a onclick="Tavern.edit(5824);">edit</a> </div>
+<div class="comment-text">
+<p>...Megan's a little out of date, it seems.</p>
+<p>"<i class="inline-quote">I can just edit ourselves out of the footage as it runs. Well, apparently Reality Deviants can do something with that a little easier than with looped footage, but they're also less likely to notice anything amiss in the first place. Your call.</i>"</p>
+<p>While she talks, she works on breaking into the security. Not exactly a <b>difficult</b> task, but she's made dumb mistakes before... hopefully not on the job.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5861">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5861" onclick="Tavern.upvote(5861);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 06th 00:59 </div>
+<div class="comment-text">
+<p>Megan waves her hand dismissively. After a few minutes of hackig and scanning, you discover that there are a number of EDE's in the house, leading to Megan deciding that it's too risky to go in just yet.</p>
+<p>"<i class="inline-quote">See if you can get a start on hacking his computers. All we need is something saying indicating that they aren't in contact with any other Code PENTEX's before we can get this thing over with.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5872">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5872" onclick="Tavern.upvote(5872);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 06th 21:12 &middot; <a onclick="Tavern.edit(5872);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra nods, and gets to work, pulling her penetration suite into her HUD and getting started.</p>
+<p>Despite some rather annoying setbacks getting set-up (even Technocracy tech is not immune to the spinning wheel of death), it's ultimately just a Masses-tech computer, and she's quickly through.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5873">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5873" onclick="Tavern.upvote(5873);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 06th 21:45 </div>
+<div class="comment-text">
+<p>Most of it is normal, albiet normal for an EDE infested corporation. However, amid lists of human sacrafices and EDE tainted drugs given to various singers, you find a document with the contact information to a number of companies; companies that don't show up anywhere else in the files.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5874">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5874" onclick="Tavern.upvote(5874);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 06th 22:19 &middot; <a onclick="Tavern.edit(5874);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra sighs.</p>
+<p>"<i class="inline-quote">No luck there, I'm afraid,</i>" she says lightly. "<i class="inline-quote">Well, on the bright side, at least we've found them.</i>"</p>
+<p>After a quick check for EDE corruption, she downloads the whole lot and sends a copy of the company list to Moore.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5875">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5875" onclick="Tavern.upvote(5875);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 06th 23:59 &middot; changed: Mar 07th 00:16 </div>
+<div class="comment-text">
+<p>She looks over your data for a few minutes, before nodding. "<i class="inline-quote">Looks like we've got what we need. Time for the next house.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-5883">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-5883" onclick="Tavern.upvote(5883);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 07th 00:58 &middot; <a onclick="Tavern.edit(5883);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra nods, returning to the car with Moore.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6054">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6054" onclick="Tavern.upvote(6054);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 11th 22:27 </div>
+<div class="comment-text">
+<p>You scan through a number of houses, ranging from those that are utterly infested with EDE's to those that are clean. You get a lot of information about Brass City's plans, which appear to be to start a race war, or something along those lines. Additionally, you find evidence that additional music has been tainted, resulting in Megan getting them pulled and replaced with clean versions.</p>
+<p>Finally, you end up outside their headquarters, waiting for Anderson to finish setting up the raid.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6055">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6055" onclick="Tavern.upvote(6055);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 11th 22:31 &middot; <a onclick="Tavern.edit(6055);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra by this point is a little worn out - she's used to working hard, but not usually in the field.</p>
+<p>She hides it well, but the way she's shifting from foot to foot is probably a giveaway.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6056">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6056" onclick="Tavern.upvote(6056);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 11th 23:04 </div>
+<div class="comment-text">
+<p>"<i class="inline-quote">Alright people, we've got an ItX Shock Corps team coming in twenty. We'll be providing Dsci support. John and I are going in. Alex and Megan are with the command group. Luna can go with either, if you think that you can handle a fight.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6058">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6058" onclick="Tavern.upvote(6058);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 11th 23:15 &middot; <a onclick="Tavern.edit(6058);">edit</a> </div>
+<div class="comment-text">
+<p>Luna tilts her head, a little anxiously, but then nods. "<i class="inline-quote">I'll stick with the command group and provide remote support.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6060">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6060" onclick="Tavern.upvote(6060);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 11th 23:38 </div>
+<div class="comment-text">
+<p>You soon find yourself sitting in a surprisingly spacious van, sitting between Accountant Lin and one of the support staff. He turns to you; "<i class="inline-quote">Alright, when opperating as support staff, your job is generally to keep an understanding of what's going on with the overall situation, as the guys on the ground often won't be able to. Of course, with certain hypertech the ground team can manage it anyways, but this isn't one of those times. The other main thing you can do is to ghost with someone with the appropriate gear, highlighting enemies, structural weaknesses, and anything else. There are some other things, but those are more advanced than you can handle. Get as much ready beforehand as you can manage, but be prepared to change if the situation warrants it. Just keep your cool and you'll be find.</i></p>
+<p><i class="inline-quote">Anything you want to ask before you get started?</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6061">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6061" onclick="Tavern.upvote(6061);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 11th 23:40 &middot; changed: Mar 11th 23:40 &middot; <a onclick="Tavern.edit(6061);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra looks at him for a moment, then nods. "<i class="inline-quote">What do they have in the way of uplinks and sensors? I may as well start configuring my remote HUD interface now, for example.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6063">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6063" onclick="Tavern.upvote(6063);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 12th 00:50 </div>
+<div class="comment-text">
+<p>He directs you to the relevant information.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6067">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6067" onclick="Tavern.upvote(6067);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 12th 02:05 &middot; <a onclick="Tavern.edit(6067);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra nods, pulling code together. She's actually written a detection suite like this before, as a practice run for all her data manipulation tricks. Sensory preprocessing to pick out objects of interest, chaos pattern antimatching looking for the product of conscious minds, picking out unusual error distributions due to nearby Reality Deviance... oh, she'll have to strip out the clunky use-anywhere DSci filter she's got in there, she has a real feed from the sensory vans this time!</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6068">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6068" onclick="Tavern.upvote(6068);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 12th 02:18 </div>
+<div class="comment-text">
+<p>With the initial support up, the cyborgs and Hitmarks break through the window on the first floor. Since it's night, there are few people around, letting them make short work of the janitors, who sprout extra eyes and start spewing caustic puss at them. However, the acid makes the stairs break under the first HITmark, resulting in the op being slowed while they arrange a work-around.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6069">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6069" onclick="Tavern.upvote(6069);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 12th 02:21 &middot; <a onclick="Tavern.edit(6069);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra joins Lin in keeping watch here while they work. The coding's all done - this is just a matter of processing what the program's putting out for the field crew.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6070">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6070" onclick="Tavern.upvote(6070);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 12th 02:31 </div>
+<div class="comment-text">
+<p>Once the grapples are set up, the task force rappels up to the top floor, where the majority of the remaining EDE's are located. The battle for the top floor is exciting, but almost feels unreal, like a video game, as various monstrocities attack, and get killed by, Technocracy forces. Finaly, you enter the CEO's office, where the final EDE is sitting. It looks like a man with a blurry face, sitting behind a desk. The first shots seem to do nothing to it.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6071">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6071" onclick="Tavern.upvote(6071);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 12th 02:42 &middot; changed: Mar 12th 02:53 &middot; <a onclick="Tavern.edit(6071);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra blinks in deja vu, the droplets of a dream fleeing her. Next will be -</p>
+<p><b>flashing inhuman eyes</b> -</p>
+<p>"<i class="inline-quote">Alex, I think - it might be able to see us. Can you screen us? I'll try and screen the team, unless you'd rather trade.</i>"</p>
+<p>She hopes he'll trust her, because she honestly doubts that "<i class="inline-quote">the EDEs that live in my mind told me in my sleep</i>" will make her any <b>more</b> trustworthy.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6072">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6072" onclick="Tavern.upvote(6072);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; Mar 12th 02:57 </div>
+<div class="comment-text">
+<p>As you speak, several things happen at once. Anderson fires a phaser as the creature, Lin moves to start typing, and the EDE steps forward, out of the screen and onto your desk.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6073">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6073" onclick="Tavern.upvote(6073);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; Mar 12th 03:07 &middot; changed: Mar 12th 03:18 &middot; <a onclick="Tavern.edit(6073);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra's response is... oddly disconnected.</p>
+<p>Her body seems to <b>flow</b> backward, smoothly stepping out from her seat to stand across the room from the EDE.</p>
+<p>Her <b>voice</b>, on the other hand, nevertheless releases a calm and dignified "<i class="inline-quote">ARGH WHAT THE FUCK?!</i>"</p>
+<p>She fumbles for her gun, bringing up what rudimentary combat software she has - the absolute basics of "<i class="inline-quote">gun-fu</i>" and movement prediction algorithms - and scrambling the physical outer edge of her ADEI functions to break any attempt at direct mental interference.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6367">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6367" onclick="Tavern.upvote(6367);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; 5 h ago </div>
+<div class="comment-text">
+<p>The creature is small at the moment, the same size that it was on the computer screen, as if it had only ever heard about perspective.</p>
+<p>Without any visible action from it, the unenlightened worker next to you begins to scream, holding his hands to his head. He scrambles out of his seat and towards the exit.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6368">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6368" onclick="Tavern.upvote(6368);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 4 h ago &middot; <a onclick="Tavern.edit(6368);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra could slap herself. Of course the EDE wouldn't go for the hard target first. Now it's on <b>her</b> hands if - if he's been harmed.</p>
+<p>There's - she might be able to help him, she's been reading up on remote neural access procedures and while her ADEI might not normally have the sensitivity she <b>does</b> have three sensor vans to use here - but it's probably <b>faster</b> to just try and take this thing down -</p>
+<p>She holds out her gun, anti-EDE ammunition loaded. She may be an <b>awful</b> shot, but her own body is probably the highest-fidelity simulation she has available to her - and it doesn't <b>matter</b> how bad her aim is, if she can predict the right time to fire so that her involuntary twitches end up on-target.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6370">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6370" onclick="Tavern.upvote(6370);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; 4 h ago </div>
+<div class="comment-text">
+<p>The bullet impacts the EDE, causing it to flicker like a broken television for a moment. It appears unharmed.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6371">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6371" onclick="Tavern.upvote(6371);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 4 h ago &middot; <a onclick="Tavern.edit(6371);">edit</a> </div>
+<div class="comment-text">
+<p><b>Charming</b>. She doesn't have the expertise for proper Gauntlet-incursion, which means she has no real means of harming it ...</p>
+<p>... but she doesn't quite need to, does she?</p>
+<p>Not <b>yet</b>, anyway. Lin hasn't had a chance to react yet, but he ought to be able to hurt it - and if they can hold out long enough, a few flimsy walls aren't going to meaningfully impede the combat team either.</p>
+<p>They need to keep themselves safe, and it locked down. And wouldn't you know, she's already used something perfect for that twice this mission.</p>
+<p>EDEs may be <b>alien</b>, but they still have <b>brains</b>.</p>
+<p>There ought to be something there.</p>
+<p>Around her, the van whines, extradimensional receivers rotating "<i class="inline-quote">ana</i>" and "<i class="inline-quote">kata</i>" to target the new position of the EDE. It won't be traditional, whatever she finds. She'd be shocked if it ran on anything so banal as electricity in neurons.</p>
+<p>But that's fine. That's the point of studying abstract information: no matter the format, it's something that "<i class="inline-quote">can be found.</i>"</p>
+<p>Her mind processing at the impossible speed of her ADEI, programming at literally the speed of thought, and then:</p>
+<p>"<i class="inline-quote">White Noise Generation, Extradimensional Mode.</i>"</p>
+<p>And the world around the EDE erupts into static.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6377">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6377" onclick="Tavern.upvote(6377);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; 3 h ago &middot; changed: 3 h ago </div>
+<div class="comment-text">
+<p>It doesn't have a brain. It doesn't have an anything, just a trick being played on your visual cortex. You've been shooting at thin air, and now you see that the screen has a hole in it from your earlier attempt.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6378">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6378" onclick="Tavern.upvote(6378);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 3 h ago &middot; <a onclick="Tavern.edit(6378);">edit</a> </div>
+<div class="comment-text">
+<p>... Lyra feels kind of embarrassed, now.</p>
+<p>No time for that. At least she managed to break whatever it was doing.</p>
+<p>... Crap, she just diverted her focus from the actual EDE, didn't she. She <b>really</b> hopes the tac-team wasn't relying on her work too much... time to re-establish contact.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6379">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6379" onclick="Tavern.upvote(6379);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; 3 h ago </div>
+<div class="comment-text">
+<p>The man who screamed earlier opens the door to the trailer, running as fast as he can. Meanwhile, everyone else is firing at the walls, apparently randomly.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6380">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6380" onclick="Tavern.upvote(6380);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 3 h ago &middot; <a onclick="Tavern.edit(6380);">edit</a> </div>
+<div class="comment-text">
+<p>... Wonderful. Whatever this thing is, it's <b>very good</b> at penetrating minds.</p>
+<p>"<i class="inline-quote">Tac Team Alpha, do you read? You are under a deviant mental effect, repeat, deviant mental effect! Whatever you're shooting at, the sensors on this end aren't picking it up!</i>"</p>
+<p>She turns to Lin - "<i class="inline-quote">I think I can cut off the EDE's access to their senses, but I can only do that one at a time. Can you try and track down wherever it's really gone?</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6381">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6381" onclick="Tavern.upvote(6381);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; 3 h ago &middot; changed: 3 h ago </div>
+<div class="comment-text">
+<p>He nods and starts tapping on his computer. The little EDE is now acting like one of those eye floaters, barely moving when you move your eyes. It's giving you the finger. Everyone has stopped shooting, except for the earlier victim.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6384">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6384" onclick="Tavern.upvote(6384);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 3 h ago &middot; <a onclick="Tavern.edit(6384);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra nods, and turns back to the team.</p>
+<p>...This will be a little tricky. She's essentially "<i class="inline-quote">blinding</i>" them to EDE interference, without cutting off her own connections to their HUDs - the idea being that they can rely on her sensor suite instead of vulnerable local sensors.</p>
+<p>... Not that her sensor suite is all that less vulnerable, apparently. That'll be the next step, is trying to secure her HUD.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6385">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6385" onclick="Tavern.upvote(6385);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; 2 h ago </div>
+<div class="comment-text">
+<p>While things have quieted down, it's a relief to get the EDE induced vision out of your mind. You only have enough juice to work on one person at a time though, so everyone else is left to suffer. At least it'st not blinding people or something.</p>
+<p>Lin pales. "<i class="inline-quote">The EDE possessed Jim! Quick, you, you and you, go after him. We can't let it get away!</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6386">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6386" onclick="Tavern.upvote(6386);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 2 h ago &middot; <a onclick="Tavern.edit(6386);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra sighs. Of course. In retrospect that was obvious.</p>
+<p>She makes a call - "<i class="inline-quote">Tac Team, I'm repurposing the sensor suite, the EDE has fled from your location. Lin, can you forward me the location? Let's try cutting off it's senses again, I don't think I can get through its mental defenses.</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6387">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6387" onclick="Tavern.upvote(6387);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; 2 h ago </div>
+<div class="comment-text">
+<p>"<i class="inline-quote">He's heading southeast on goodman's street. It looks like... Damn it, he's making for Hollywood Boulevard! If he gets into the crowd finding him will be hell!</i>"</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6390">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6390" onclick="Tavern.upvote(6390);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 1 h ago &middot; <a onclick="Tavern.edit(6390);">edit</a> </div>
+<div class="comment-text">
+<p>Grimace. They might be able to cut him off with the mundane police, but that'd be putting civilians at risk and she'd <b>really</b> rather not do that. "<i class="inline-quote">I think I can slow it down, but we need people in pursuit!</i>"</p>
+<p>She throws up her white noise generator again, repurposing the van's active sensors for something they're really not designed for at this range. Getting a lock on him isn't the hard part, when she already knows where it is, but cutting off enough of its senses to disorient it, stop it moving...</p>
+<p>She pushes, harder than she has in a long while, and the whispers that have long been her companion grow almost audible, her hair seeming to shine as if it were a single fluid mass. <b>Focus</b>.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6391">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6391" onclick="Tavern.upvote(6391);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 1 h ago &middot; changed: 54 min ago &middot; <a onclick="Tavern.edit(6391);">edit</a> </div>
+<div class="comment-text">
+<p>The result... isn't as smooth as she'd like. She had to hook her own ADEI into the field to do it, stealing entropy from her <b>own</b> vision to compensate - that'll take time to wear off, and her vision will be blurry for a while. But it does work - a thrumming field that hovers just under the edge of overloading the vans' antennae, a dimensional distortion that extends into the world as a field of awful buzzing static.</p>
+<p>There's no way it'll last long - but it might just slow it down enough.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6392">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6392" onclick="Tavern.upvote(6392);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; 42 min ago </div>
+<div class="comment-text">
+<p>The EDE stumbles, but keeps going. It's moving much faster than a human could have, and combined with it's head start it's uncertain if you're going to get to it before it enters the crowds.</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6393">
+<div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6393" onclick="Tavern.upvote(6393);"><i class="fa fa-heart"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~LyraTachimori">LyraTachimori</a>
+&middot; 37 min ago &middot; changed: 37 min ago &middot; <a onclick="if(confirm('Are you sure you want to delete this comment?')) Tavern.delete(6393);">delete</a> &middot; <a onclick="Tavern.edit(6393);">edit</a> </div>
+<div class="comment-text">
+<p>Lyra grits her teeth. Her mind races, her ADEI overclocking, refining her code, eking as much efficiency out of her projector as she can - so fast the heat is burning her from the inside, but she <b>can't let this killer get free</b> -</p>
+<p>It's not enough. So she takes the vans up that last notch, melting the antennae for a disorientating pulse of <b>absolute blindness</b> -</p> </div>
+</div>
+</div>
+<div class="tavern-list-post " id="post-6394">
+<a name="btm"></a> <div class="tavern-thread-voting">
+<a title="upvote this" id="vote-wdgt-6394" onclick="Tavern.upvote(6394);"><i class="fa fa-heart-o"></i></a>
+</div>
+<div class="tavern-thread-content">
+<div class="meta small gray">
+1
+&middot; by <a href="/~automaton">automaton</a>
+&middot; new </div>
+<div class="comment-text">
+<p>The EDE stumbles and falls, allowing the Tac team to fill it full of tranquilizers, tie it up, and throw it in the back of the van.</p> </div>
+</div>
+</div>
+<script>
+    
+    var myVotes = [];
+    if(myVotes.length > 0) myVotes.forEach(function(optId) {
+      $('#chk_' optId).prop('checked', true);
+    });
+      
+    </script>
+</div>
+<div class="stack-pane inset" id="post_widget"><div id="post-widget-i">
+    
+    <div>Post a reply as LyraTachimori:</div>
+    
+    <textarea></textarea><div style="float:right">
+      <a target="_blank" href="/wiki/page?w=help&amp;n=TextFormat"><i class="fa fa-info-circle"></i> text formatting help</a>
+    </div>
+    <div class="error"></div>
+    <input name="post_id" value="" type="hidden"><input value="Post Comment" onclick="Tavern.post(
+      $('#post-widget-i &gt; textarea').val(), 
+      '');" type="button">
+</div></div>
+</div>
+<script>
+  
+Tavern.currentThread = '5808';
+$('#post_widget').html(Tavern.templates.postWidget({}));  
+</script><style>#tavern-post-list{}.tavern-thread{padding:12px;border-bottom:1px solid rgba(0,0,0,0.2);background:rgba(0,0,0,0.05);margin-left:-12px;margin-right:-12px;}</style>
+<div class="small gray" style="float: right">9.5</div>
+<div>&nbsp; <a onclick="window.scrollTo(0,0);">&uarr; top</a>
+</div> 
+
+<script>
+      InitPage();      
+    </script>
+</body>
+</html>
