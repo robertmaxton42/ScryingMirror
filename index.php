@@ -2,6 +2,8 @@
 <?php
     $dom = new DOMDocument();
     $dom->formatOutput=true;
+
+    if($_POST) {fwrite(STDOUT, "POST received");};
     
     $PageContents = urldecode($_POST['PageContents']);
     $dom->loadHTML($PageContents);
