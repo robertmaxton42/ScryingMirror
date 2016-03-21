@@ -14,7 +14,5 @@ GM_xmlhttpRequest({
     data: "PageContents=" + encodeURIComponent(ihtml) + "&URL=" + encodeURIComponent(document.URL),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     onerror: function (response) { alert("Error in POST"); },
-    onload: function (response) { alert("Successful POST");}
+    onload: function (response) { window.location.href = 'http://dynamicmirror.herokuapp.com/latestpage.html';}
 });
-
-//window.setTimeout(function(){window.location.href = http://localhost:26553/latest;}
