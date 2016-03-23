@@ -13,7 +13,6 @@
     $body = $dom->getElementsByTagName('body')->item(0);
 
     //Rebase relative links.
-    //Google Translate duplicates this work, I think.
     $baseTag = $dom->createElement('base');
     $baseTag->setAttribute('href', urldecode($_POST['URL']));
     $baseTag->setAttribute('title', "Added by Dynamic Reader"); //Debug code
@@ -26,8 +25,22 @@
     $hrefs = array();
 
     //Populate hrefs
-    foreach ($links as $link) {
-        $hrefs[] = $link->attributes->getNamedItem('href')->nodeValue;
+    //Name all unnamed links.
+    //Use random number to eliminate conflicts.
+    $llength = $links->length;
+    $rnd = rand();
+    $idh = 'a' . $rnd;
+
+    for ($i = 0; $i < $llength; $i++) {
+        $link = $links->item($i);
+        $currid = $link->attributes->getNamedItem('id')->nodeValue;
+        if (empty($currid)) {
+            $id = $idh . $i;
+            $link->attributes->getNamedItem('id')->nodeValue = $id;
+        }
+        else
+            $id = $currid;
+        $hrefs[$id] = $link->attributes->getNamedItem('href')->nodeValue;
     }
 
     //Convert to JSON
@@ -43,11 +56,18 @@
     $rewriteScript = "
     function rewriteLinks() {
         var aTags = document.getElementsByTagName('a');
+        var aMap = new Map();
 
-        for (var i = 0; i < aTags.length; i++) {
-            aTags[i].setAttribute('href', links[i]);
-            //aTags[i].setAttribute('title', 'Edited!'); //Debug code
-        }
+        /*Build map of anchor id to tag.
+         *Note that this will end up mapping all links without an id to empty string
+         *This is fine, though, because those must have been added between server load
+         *and client load - aka, Google Translate*/
+        for (var aTag of aTags)
+            aMap.set(aTag.getAttribute('id'), aTag);
+
+        //Then iterate through all the links we already knew about
+        for (var key in links)
+            aMap.get(key).setAttribute('href', links[key]);
     }
 
     //Append rewriteLinks() to onLoad
