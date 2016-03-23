@@ -40,24 +40,49 @@
     $head->appendChild($hrefsScriptTag);
 
     //Inject javascript: rewrite links in order to their proper destinations.
-    $rewriteScript =
-        "function rewriteLinks() {
-            var aTags = document.getElementsByTagName('a');
+    $rewriteScript = "
+    function rewriteLinks() {
+        var aTags = document.getElementsByTagName('a');
 
-            for (i = 0; i < aTags.length; i++)
-                aTags[i].setAttribute('href', links[i]);
-        }";
+        for (var i = 0; i < aTags.length; i++) {
+            aTags[i].setAttribute('href', links[i]);
+            aTags[i].setAttribute('title', 'Edited!');
+        }
+    }
+
+    //Append rewriteLinks() to onLoad
+    //addLoadEvent() from htmlgoodies.com, credited to Simon Willison.
+
+    function addLoadEvent(func) {
+      var oldonload = window.onload;
+      if (typeof window.onload != 'function') {
+        window.onload = func;
+      } else {
+        window.onload = function() {
+          if (oldonload) {
+            oldonload();
+          }
+          func();
+        }
+      }
+    }";
+
     $rewriteScriptNode = $dom->createTextNode($rewriteScript);
     $rewriteScriptTag = $dom->createElement('script');
     $rewriteScriptTag->appendChild($rewriteScriptNode);
     $head->appendChild($rewriteScriptTag);
 
-    //Call rewriteLinks() onLoad
-    $body->setAttributes('onLoad', 'rewriteLinks()');
+    //addLoadEvent has to occur /after/ the body tag has been loaded, however...
+    $addLoadEventTag = $dom->createElement('script');
+    $addLoadEventTag->appendChild($dom->createTextNode('addLoadEvent(rewriteLinks);'));
+    
+    //shoddy workaround because prependChild doesn't exist...
+    //addLoadEvent should now be the first thing read.
+    $first = $body->childNodes->item(0);
+    $body->insertBefore($addLoadEventTag, $first);
 
     //Save the modified webpage
     $dom->saveHTMLFile('latestpage.html');
-
 
     /*//Debug code.
     print_r($hrefs);*/
