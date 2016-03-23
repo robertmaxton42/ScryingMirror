@@ -1,5 +1,7 @@
 
 <?php
+    if (!$_POST) return; //Break if there's no POST.
+
     $dom = new DOMDocument();
     $dom->formatOutput = true;
     
@@ -19,9 +21,17 @@
     /*Build table of all links on the page.
      *Note that it's not necessary to reparse relative links, since the <base> tag
      *inserted above gets carried over into the Google Translate iframe.*/
-    $links = iterator_to_array($dom->getElementsByTagName('a'));
-    $jsLinks = json_encode($links);
-    $scriptdata = "var links = " . $js_links . ";\n";
+    $links = $dom->getElementsByTagName('a');
+    $hrefs = array();
+
+    //Populate hrefs
+    foreach ($links as $link) {
+        $hrefs[] = $link->attributes->getNamedItem('href')->nodeValue;
+    }
+
+    //Convert to JSON
+    $jsLinks = json_encode($hrefs);
+    $scriptdata = "var links = " . $jsLinks . ";\n";
     $scriptText = $dom->createTextNode($scriptdata);
     $scriptTag = $dom->createElement('script');
     
@@ -34,6 +44,6 @@
     $dom->saveHTMLFile('latestpage.html');
 
 
-    //Debug code.
-    echo $jsLinks;
+    /*//Debug code.
+    print_r($hrefs);*/
 ?>
