@@ -19,7 +19,7 @@
     /*Build table of all links on the page.
      *Note that it's not necessary to reparse relative links, since the <base> tag
      *inserted above gets carried over into the Google Translate iframe.*/
-    $links = $dom->getElementsByTagName('a');
+    $links = iterator_to_array($dom->getElementsByTagName('a'));
     $jsLinks = json_encode($links);
     $scriptdata = "var links = " . $js_links . ";\n";
     $scriptText = $dom->createTextNode($scriptdata);
