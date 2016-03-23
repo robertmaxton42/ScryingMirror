@@ -75,19 +75,19 @@
     //Append rewriteLinks() to onLoad
     //addLoadEvent() from htmlgoodies.com, credited to Simon Willison.
 
-    function addLoadEvent(func) {
-      var oldonload = window.onload;
-      if (typeof window.onload != 'function') {
-        window.onload = func;
-      } else {
-        window.onload = function() {
-          if (oldonload) {
-            oldonload();
-          }
-          func();
-        }
-      }
-    }";
+    //function addLoadEvent(func) {
+      //var oldonload = window.onload;
+      //if (typeof window.onload != 'function') {
+        //window.onload = func;
+      //} else {
+        //window.onload = function() {
+          //if (oldonload) {
+            //oldonload();
+          //}
+          //func();
+        //}
+      //}
+    //}";
 
     $rewriteScriptNode = $dom->createTextNode($rewriteScript);
     $rewriteScriptTag = $dom->createElement('script');
@@ -102,6 +102,14 @@
     //addLoadEvent should now be the first thing read.
     $first = $body->childNodes->item(0);
     $body->insertBefore($addLoadEventTag, $first);
+
+    /*Unfortunately, we can't actually always depend on the page to load!
+     *So, also add script to end of body.
+     *Hopefully doing both will also future-proof from Google Translate changing their
+     *own link rewrite script*/
+    $forceRewriteTag = $dom->createElement('script');
+    $forceRewriteTag->appendChild($dom->createTextNode('rewriteLinks();'));
+    $body->appendChild($forceRewriteTag);
 
     //Save the modified webpage
     $dom->saveHTMLFile('latestpage.html');
