@@ -32,4 +32,8 @@
 
     //Save the modified webpage
     $dom->saveHTMLFile('latestpage.html');
+
+
+    //Debug code.
+    echo $jsLinks;
 ?>

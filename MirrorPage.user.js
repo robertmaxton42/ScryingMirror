@@ -14,5 +14,8 @@ GM_xmlhttpRequest({
     data: "PageContents=" + encodeURIComponent(ihtml) + "&URL=" + encodeURIComponent(document.URL),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     onerror: function (response) { alert("Error in POST"); },
-    onload: function (response) { window.location.href = 'http://dynamicmirror.herokuapp.com/latestpage.html';}
+    onload: function (response) {
+        window.location.href = 'http://dynamicmirror.herokuapp.com/latestpage.html';
+        window.alert(response.responseText); //generic debug code.
+    }
 });
