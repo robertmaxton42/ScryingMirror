@@ -11,8 +11,13 @@ var ihtml = document.getElementsByTagName("html")[0].innerHTML;
 GM_xmlhttpRequest({
     method: 'POST',
     url: 'http://dynamicmirror.herokuapp.com/index.php',
+    //url: 'http://localhost:21802/index.php',
     data: "PageContents=" + encodeURIComponent(ihtml) + "&URL=" + encodeURIComponent(document.URL),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     onerror: function (response) { alert("Error in POST"); },
-    onload: function (response) { window.location.href = 'http://dynamicmirror.herokuapp.com/latestpage.html';}
+    onload: function (response) {
+        //window.alert(response.responseText); //generic debug code.
+        //window.location.href = 'http://localhost:21802/latestpage.html';
+        window.location.href = 'http://dynamicmirror.herokuapp.com/latestpage.html';
+    }
 });
