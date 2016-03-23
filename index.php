@@ -46,7 +46,7 @@
 
         for (var i = 0; i < aTags.length; i++) {
             aTags[i].setAttribute('href', links[i]);
-            aTags[i].setAttribute('title', 'Edited!');
+            //aTags[i].setAttribute('title', 'Edited!'); //Debug code
         }
     }
 
