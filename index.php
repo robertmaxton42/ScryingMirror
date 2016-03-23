@@ -25,18 +25,20 @@
     $hrefs = array();
 
     //Populate hrefs
-    //Name all unnamed links.
     //Use random number to eliminate conflicts.
     $llength = $links->length;
     $rnd = rand();
     $idh = 'a' . $rnd;
 
+    //Name all unnamed links.
     for ($i = 0; $i < $llength; $i++) {
         $link = $links->item($i);
         $currid = $link->attributes->getNamedItem('id')->nodeValue;
         if (empty($currid)) {
             $id = $idh . $i;
-            $link->attributes->getNamedItem('id')->nodeValue = $id;
+            $idAttr = $dom->createAttribute('id');
+            $idAttr->value = $id;
+            $link->appendChild($idAttr);
         }
         else
             $id = $currid;
