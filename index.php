@@ -113,7 +113,11 @@
 
     //Save the modified webpage
     $dom->saveHTMLFile(urldecode($_POST['hash']) + '.html');
+<<<<<<< HEAD
     print_r($_POST['hash']);
+=======
+    print_r($_POST['hash'];)
+>>>>>>> bc3f6872adbb2ce56f38749a265bddcbf4ba87f6
     //$dom->saveHTMLFile('latestpage.html');
 
     /*//Debug code.
