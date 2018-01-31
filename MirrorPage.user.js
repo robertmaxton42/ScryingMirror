@@ -18,7 +18,7 @@ String.prototype.hashCode = function() {
     for (var i = 0; i < this.length; i++) {
         char = this.charCodeAt(i);
         hash = ((hash<<5)-hash)+char;
-        hash = hash & hash; // Convert to 32bit integer
+        hash = Math.abs(hash & hash); // Convert to 32bit positive integer
     }
     return hash;
 }
