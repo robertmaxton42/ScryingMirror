@@ -2,9 +2,10 @@
 // @name        Mirror Page
 // @namespace   mailto:linkhyrule5@gmail.com
 // @description POSTs page to dynamic page mirror
-// @include     http://*.syosetu.com/*
+// @include     https://novel18.syosetu.com/*
+// @include     http://novel18.syosetu.com/*
 // @version     1
-// @grant       GM_xmlhttpRequest
+// @grant       GM.xmlHttpRequest
 // ==/UserScript==
 
 var ihtml = document.getElementsByTagName("html")[0].innerHTML;
@@ -24,7 +25,7 @@ String.prototype.hashCode = function() {
 
 var hash = ihtml.hashCode();
 
-GM_xmlhttpRequest({
+GM.xmlHttpRequest({
     method: 'POST',
     url: 'http://dynamicmirror.herokuapp.com/index.php',
     //url: 'http://localhost:21802/index.php',
@@ -35,5 +36,6 @@ GM_xmlhttpRequest({
         //window.alert(response.responseText); //generic debug code.
         //window.location.href = 'http://localhost:21802/latestpage.html';
         window.location.href = 'http://dynamicmirror.herokuapp.com/' + hash + '.html';
-    }
+    },
+  	synchronous: true
 });

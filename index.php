@@ -112,7 +112,8 @@
     $body->appendChild($forceRewriteTag);
 
     //Save the modified webpage
-    $dom->saveHTMLFile(urldecode($_POST['hash']) + '.html');
+    //$dom->saveHTMLFile(urldecode($_POST['hash']) + '.html');
+    $dom->saveHTMLFile('latestpage.html');
 
     /*//Debug code.
     print_r($hrefs);*/
