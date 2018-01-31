@@ -7,14 +7,14 @@
     
     //Get the webpage by POST from the GreaseMonkey plugin
     //Parse into a DOM, and grab the head and body tags while we're at it.
-    $PageContents = urldecode($_POST['PageContents']);
+    $PageContents = urldecode($_POST['pageContents']);
     $dom->loadHTML($PageContents);
     $head = $dom->getElementsByTagName('head')->item(0);
     $body = $dom->getElementsByTagName('body')->item(0);
 
     //Rebase relative links.
     $baseTag = $dom->createElement('base');
-    $baseTag->setAttribute('href', urldecode($_POST['URL']));
+    $baseTag->setAttribute('href', urldecode($_POST['url']));
     $baseTag->setAttribute('title', "Added by Dynamic Reader"); //Debug code
     $head->appendChild($baseTag);
 
@@ -112,7 +112,7 @@
     $body->appendChild($forceRewriteTag);
 
     //Save the modified webpage
-    $dom->saveHTMLFile('latestpage.html');
+    $dom->saveHTMLFile(urldecode($_POST['hash']) + '.html');
 
     /*//Debug code.
     print_r($hrefs);*/
